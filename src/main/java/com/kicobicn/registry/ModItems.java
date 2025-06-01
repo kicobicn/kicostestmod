@@ -1,6 +1,6 @@
 package com.kicobicn.registry;
 
-import com.kicobicn.Kicostestmod;
+import com.kicobicn.KicostestMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -12,17 +12,22 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item COIN = registerItem("coin1",
-        new Item(new FabricItemSettings()));
-    public static Item registerItem(String name, Item item, ItemGroup... itemGroups) {
-        Item registeredItem = Registry.register(Registries.ITEM,new Identifier(Kicostestmod.MOD_ID,name),item);
-        for (net.minecraft.item.ItemGroup ItemGroup : itemGroups){
-            RegistryKey<net.minecraft.item.ItemGroup> itemGroup = null;
+    public static final Item COIN = registerItem("coin",
+        new Item(new FabricItemSettings()),
+            ModItemGroup.COIN );
+
+    private static Item registerItem(String coin, Item item, ItemGroup coin1) {
+        return item;
+    }
+
+    public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> itemGroup, RegistryKey<ItemGroup>... itemGroups) {
+        Item registeredItem = Registry.register(Registries.ITEM,new Identifier(KicostestMod.MOD_ID,name),item);
+        for (RegistryKey<ItemGroup> ItemGroup : itemGroups){
             ItemGroupEvents.modifyEntriesEvent(itemGroup).register(entries -> entries.add(registeredItem));
         }
         return registeredItem;
     }
     public static void registerModItems(){
-        Kicostestmod.LOGGER.debug("Registering mod items for" + Kicostestmod.MOD_ID);
+        KicostestMod.LOGGER.debug("Registering mod items for" + KicostestMod.MOD_ID);
     }
 }

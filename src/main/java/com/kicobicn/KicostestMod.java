@@ -1,12 +1,13 @@
 package com.kicobicn;
 
+import com.kicobicn.registry.ModItemGroup;
 import com.kicobicn.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Kicostestmod implements ModInitializer {
+public class KicostestMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
@@ -20,6 +21,7 @@ public class Kicostestmod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric Minecraft");
+		ModItemGroup.registerModItemGroup();
 		ModItems.registerModItems();
 	}
 }

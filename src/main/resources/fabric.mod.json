@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.kicobicn.Kicostestmod"
+			"com.kicobicn.KicostestMod"
 		],
 		"fabric-datagen": [
-			"com.kicobicn.KicostestmodDataGenerator"
+			"com.kicobicn.KicostestModDataGenerator"
 		]
 	},
 	"mixins": [
